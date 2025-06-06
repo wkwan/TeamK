@@ -157,6 +157,9 @@ function animate() {
     ctx.fillStyle = 'rgba(255, 255, 255, 1)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
+    // Update logo position every frame to handle dynamic changes
+    updateLogoRect();
+    
     particles.forEach(particle => {
         particle.update();
         particle.draw();
@@ -165,16 +168,16 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
-canvas.addEventListener('mousemove', (e) => {
+document.addEventListener('mousemove', (e) => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
 });
 
-canvas.addEventListener('mousedown', () => {
+document.addEventListener('mousedown', () => {
     mouse.down = true;
 });
 
-canvas.addEventListener('mouseup', () => {
+document.addEventListener('mouseup', () => {
     mouse.down = false;
 });
 
