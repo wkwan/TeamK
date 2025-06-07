@@ -44,7 +44,7 @@ class Particle {
 
     update(deltaTime) {
         this.trail.push({ x: this.x, y: this.y });
-        if (this.trail.length > 3) {
+        if (this.trail.length > 5) {
             this.trail.shift();
         }
         
