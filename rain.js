@@ -5,15 +5,16 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const PIXEL_SIZE = 4;
-const GRAVITY = 0.05;
+const GRAVITY = 3.0;
 const MOUSE_RADIUS = 80;
-const MOUSE_FORCE = 0.3;
-const DAMPING = 0.99;
-const MAX_VELOCITY = 8;
+const MOUSE_FORCE = 1200.0;
+const DAMPING = 0.999;
+const MAX_VELOCITY = 480;
 
 let mouse = { x: 0, y: 0, down: false };
 let particles = [];
 let logoRect = null;
+let lastTime = 0;
 
 function updateLogoRect() {
     const logo = document.getElementById('logo');
@@ -35,26 +36,26 @@ class Particle {
         this.x = x;
         this.y = y;
         this.vx = 0;
-        this.vy = Math.random() * 2 + 1;
+        this.vy = Math.random() * 120 + 60;
         this.size = Math.random() < 0.5 ? PIXEL_SIZE : PIXEL_SIZE * 1.5;
         this.trail = [];
         this.opacity = Math.random() * 0.3 + 0.3;
     }
 
-    update() {
+    update(deltaTime) {
         this.trail.push({ x: this.x, y: this.y });
         if (this.trail.length > 3) {
             this.trail.shift();
         }
         
-        this.vy += GRAVITY;
+        this.vy += GRAVITY * deltaTime;
         
         const dx = this.x - mouse.x;
         const dy = this.y - mouse.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
         
         if (distance < MOUSE_RADIUS && distance > 0) {
-            const force = (1 - distance / MOUSE_RADIUS) * MOUSE_FORCE;
+            const force = (1 - distance / MOUSE_RADIUS) * MOUSE_FORCE * deltaTime;
             const angle = Math.atan2(dy, dx);
             
             if (mouse.down) {
@@ -66,14 +67,15 @@ class Particle {
             }
         }
         
-        this.vx *= DAMPING;
-        this.vy *= DAMPING;
+        const dampingFactor = Math.pow(DAMPING, deltaTime * 60);
+        this.vx *= dampingFactor;
+        this.vy *= dampingFactor;
         
         this.vx = Math.max(-MAX_VELOCITY, Math.min(MAX_VELOCITY, this.vx));
         this.vy = Math.max(-MAX_VELOCITY, Math.min(MAX_VELOCITY, this.vy));
         
-        this.x += this.vx;
-        this.y += this.vy;
+        this.x += this.vx * deltaTime;
+        this.y += this.vy * deltaTime;
         
         // Simple logo collision using circular approximation
         if (logoRect) {
@@ -104,7 +106,7 @@ class Particle {
                 const tangentY = normalX;
                 const slideForce = 0.2;
                 this.vx += tangentX * slideForce * Math.sign(dx);
-                this.vy += GRAVITY * 0.5;
+                this.vy += GRAVITY * 0.5 * deltaTime;
             }
         }
         
@@ -112,7 +114,7 @@ class Particle {
             this.y = -10;
             this.x = Math.random() * canvas.width;
             this.vx = 0;
-            this.vy = Math.random() * 2 + 1;
+            this.vy = Math.random() * 120 + 60;
             this.trail = [];
         }
         
@@ -140,6 +142,8 @@ class Particle {
             this.size,
             this.size
         );
+        
+        ctx.globalAlpha = 1.0;
     }
 }
 
@@ -153,7 +157,16 @@ function init() {
     }
 }
 
-function animate() {
+function animate(currentTime) {
+    const deltaTime = lastTime === 0 ? 0.016 : (currentTime - lastTime) / 1000;
+    lastTime = currentTime;
+    
+    if (isNaN(deltaTime) || deltaTime <= 0 || deltaTime > 0.1) {
+        requestAnimationFrame(animate);
+        return;
+    }
+    
+    
     ctx.fillStyle = 'rgba(240, 245, 250, 1)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
@@ -161,7 +174,7 @@ function animate() {
     updateLogoRect();
     
     particles.forEach(particle => {
-        particle.update();
+        particle.update(deltaTime);
         particle.draw();
     });
     
