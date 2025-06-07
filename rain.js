@@ -154,7 +154,7 @@ function init() {
 }
 
 function animate() {
-    ctx.fillStyle = 'rgba(255, 255, 255, 1)';
+    ctx.fillStyle = 'rgba(240, 245, 250, 1)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
     // Update logo position every frame to handle dynamic changes
