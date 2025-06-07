@@ -166,8 +166,8 @@
             transition: opacity 0.3s;
             pointer-events: none;
         }
-        .gallery-item.brainwash-royale:hover .gallery-image img {
-            opacity: 0.3;
+        .gallery-item.brainwash-royale:hover .gallery-image > img {
+            filter: brightness(0.4);
         }
         .gallery-item.brainwash-royale:hover .gallery-image-overlay {
             opacity: 1;
@@ -184,13 +184,17 @@
         .gallery-image-overlay svg {
             width: 48px;
             height: 48px;
-            fill: black;
+            fill: white;
+        }
+        .gallery-image-overlay img {
+            width: 48px;
+            height: 48px;
         }
         .gallery-item.frantic-architect .gallery-image {
             position: relative;
         }
-        .gallery-item.frantic-architect:hover .gallery-image img {
-            opacity: 0.3;
+        .gallery-item.frantic-architect:hover .gallery-image > img {
+            filter: brightness(0.4);
         }
         .gallery-item.frantic-architect .gallery-image-overlay {
             position: absolute;
@@ -213,8 +217,8 @@
         .gallery-item.serverhosting .gallery-image {
             position: relative;
         }
-        .gallery-item.serverhosting:hover .gallery-image img {
-            opacity: 0.3;
+        .gallery-item.serverhosting:hover .gallery-image > img {
+            filter: brightness(0.4);
         }
         .gallery-item.serverhosting .gallery-image-overlay {
             position: absolute;
@@ -235,14 +239,14 @@
             pointer-events: auto;
         }
         @media (max-width: 768px) {
-            .gallery-item.brainwash-royale .gallery-image img,
-            .gallery-item.frantic-architect .gallery-image img,
-            .gallery-item.serverhosting .gallery-image img {
-                opacity: 0.3;
+            .gallery-item.brainwash-royale:active .gallery-image > img,
+            .gallery-item.frantic-architect:active .gallery-image > img,
+            .gallery-item.serverhosting:active .gallery-image > img {
+                filter: brightness(0.4);
             }
-            .gallery-item.brainwash-royale .gallery-image-overlay,
-            .gallery-item.frantic-architect .gallery-image-overlay,
-            .gallery-item.serverhosting .gallery-image-overlay {
+            .gallery-item.brainwash-royale:active .gallery-image-overlay,
+            .gallery-item.frantic-architect:active .gallery-image-overlay,
+            .gallery-item.serverhosting:active .gallery-image-overlay {
                 opacity: 1;
                 pointer-events: auto;
             }
@@ -400,13 +404,10 @@
                 <div class="gallery-image">
                     <img src="images/brainwash-royale.jpg" alt="Brainwash Royale">
                     <div class="gallery-image-overlay">
-                        <a href="https://fortnite.gg/island?code=6593-1124-0217" target="_blank" aria-label="Play on Fortnite">
-                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="0" y="0" width="24" height="24" fill="black"/>
-                                <path d="M7 3v18h4v-7h5v-4h-5V7h6V3H7z" fill="white" stroke="white" stroke-width="0.5"/>
-                            </svg>
+                        <a href="https://www.fortnite.com/@brainwash/6593-1124-0217" target="_blank" aria-label="Play on Fortnite">
+                            <img src="images/fortnite.png" alt="Fortnite">
                         </a>
-                        <a href="https://www.youtube.com/watch?v=wEpRhkrkCEk" target="_blank" aria-label="Watch on YouTube">
+                        <a href="https://www.youtube.com/watch?v=wEpRhkrkCEk" target="_blank" aria-label="Trailer">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                             </svg>
@@ -436,7 +437,7 @@
                                 <path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
                             </svg>
                         </a>
-                        <a href="https://www.youtube.com/playlist?list=PLhYmet_wsdVGU6KkOx7EG3rsP2xOi0TOM" target="_blank" aria-label="Watch on YouTube">
+                        <a href="https://www.youtube.com/playlist?list=PLhYmet_wsdVGU6KkOx7EG3rsP2xOi0TOM" target="_blank" aria-label="Devlogs">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                             </svg>
@@ -452,17 +453,17 @@
                 <div class="gallery-image">
                     <img src="images/frantic-architect.jpg" alt="Frantic Architect">
                     <div class="gallery-image-overlay">
-                        <a href="https://www.youtube.com/watch?v=zkIfCo2JxJY" target="_blank" aria-label="Watch on YouTube">
+                        <a href="https://www.youtube.com/watch?v=zkIfCo2JxJY" target="_blank" aria-label="Postmortem">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                             </svg>
                         </a>
-                        <a href="https://medium.com/free-code-camp/how-my-mobile-game-got-365k-app-store-downloads-in-2-weeks-and-why-i-quit-indie-game-dev-a3ebd1fa3229" target="_blank" aria-label="Read on Medium">
+                        <a href="https://medium.com/free-code-camp/how-my-mobile-game-got-365k-app-store-downloads-in-2-weeks-and-why-i-quit-indie-game-dev-a3ebd1fa3229" target="_blank" aria-label="Medium Article">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0 0v24h24V0H0zm19.938 5.686L18.651 6.92a.376.376 0 00-.143.362v9.067a.376.376 0 00.143.361l1.257 1.234v.271h-6.322v-.27l1.302-1.265c.128-.128.128-.165.128-.36V8.99l-3.62 9.195h-.49L6.69 8.99v6.163a.85.85 0 00.233.707l1.694 2.054v.271H3.815v-.27l1.694-2.055a.82.82 0 00.218-.707V8.027a.624.624 0 00-.203-.527L4.019 5.686v-.27h4.674l3.613 7.923 3.176-7.924h4.456v.271z"/>
                             </svg>
                         </a>
-                        <a href="https://github.com/wkwan/frantic-architect" target="_blank" aria-label="View on GitHub">
+                        <a href="https://github.com/wkwan/frantic-architect" target="_blank" aria-label="Source Code">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
                             </svg>
