@@ -124,7 +124,7 @@ class Particle {
 
     draw() {
         this.trail.forEach((point, index) => {
-            ctx.globalAlpha = (this.opacity * 0.3) * (index / this.trail.length);
+            ctx.globalAlpha = (this.opacity * 0.3) * ((index + 1) / this.trail.length);
             ctx.fillStyle = '#87CEEB';
             ctx.fillRect(
                 point.x,
