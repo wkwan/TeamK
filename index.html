@@ -314,6 +314,16 @@
             margin: 0.5rem 0 1rem 0;
         }
         
+        /* iPad landscape spacing fix */
+        @media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+            .text-overlay {
+                padding: 8rem 1rem 4rem 1rem;
+            }
+            .gallery {
+                margin: 1rem 0 0 0;
+            }
+        }
+        
         /* Mobile responsiveness using Pico breakpoints */
         @media (max-width: 768px) {
             h1.title {
