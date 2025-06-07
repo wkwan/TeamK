@@ -6,7 +6,7 @@ canvas.height = window.innerHeight;
 
 const PIXEL_SIZE = 4;
 const GRAVITY = 0.05;
-const MOUSE_RADIUS = 120;
+const MOUSE_RADIUS = 80;
 const MOUSE_FORCE = 0.3;
 const DAMPING = 0.99;
 const MAX_VELOCITY = 8;
