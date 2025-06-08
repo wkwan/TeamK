@@ -172,7 +172,7 @@
             transition: opacity 0.3s;
             pointer-events: none;
         }
-        .gallery-item.brainwash-royale:hover .gallery-image > img {
+        .gallery-item.brainwash-royale:hover .gallery-image > picture > img {
             filter: brightness(0.4);
         }
         .gallery-item.brainwash-royale:hover .gallery-image-overlay {
@@ -199,7 +199,7 @@
         .gallery-item.frantic-architect .gallery-image {
             position: relative;
         }
-        .gallery-item.frantic-architect:hover .gallery-image > img {
+        .gallery-item.frantic-architect:hover .gallery-image > picture > img {
             filter: brightness(0.4);
         }
         .gallery-item.frantic-architect .gallery-image-overlay {
@@ -223,7 +223,7 @@
         .gallery-item.serverhosting .gallery-image {
             position: relative;
         }
-        .gallery-item.serverhosting:hover .gallery-image > img {
+        .gallery-item.serverhosting:hover .gallery-image > picture > img {
             filter: brightness(0.4);
         }
         .gallery-item.serverhosting .gallery-image-overlay {
@@ -245,9 +245,9 @@
             pointer-events: auto;
         }
         @media (max-width: 768px) {
-            .gallery-item.brainwash-royale:active .gallery-image > img,
-            .gallery-item.frantic-architect:active .gallery-image > img,
-            .gallery-item.serverhosting:active .gallery-image > img {
+            .gallery-item.brainwash-royale:active .gallery-image > picture > img,
+            .gallery-item.frantic-architect:active .gallery-image > picture > img,
+            .gallery-item.serverhosting:active .gallery-image > picture > img {
                 filter: brightness(0.4);
             }
             .gallery-item.brainwash-royale:active .gallery-image-overlay,
@@ -408,7 +408,11 @@
                     <div class="gallery-subtitle">#1 map in Fortnite's <i>Up and Coming</i> category, Aug. 2024</div>
                 </div>
                 <div class="gallery-image">
-                    <img src="images/brainwash-royale.jpg" alt="Brainwash Royale">
+                    <picture>
+                        <source type="image/avif" srcset="images/brainwash-royale.avif">
+                        <source type="image/webp" srcset="images/brainwash-royale.webp">
+                        <img src="images/brainwash-royale.jpg" alt="Brainwash Royale" loading="lazy">
+                    </picture>
                     <div class="gallery-image-overlay">
                         <a href="https://www.fortnite.com/@brainwash/6593-1124-0217" target="_blank" aria-label="Play on Fortnite">
                             <img src="images/fortnite.png" alt="Fortnite">
@@ -427,7 +431,11 @@
                     <div class="gallery-subtitle">game market research and modding platform</div>
                 </div>
                 <div class="gallery-image">
-                    <img src="images/perch.png" alt="Perch.gg">
+                    <picture>
+                        <source type="image/avif" srcset="images/perch.avif">
+                        <source type="image/webp" srcset="images/perch.webp">
+                        <img src="images/perch.png" alt="Perch.gg" loading="lazy">
+                    </picture>
                 </div>
             </a>
             <div class="gallery-item serverhosting">
@@ -436,7 +444,11 @@
                     <div class="gallery-subtitle">game server host, acquired by IndifferentBroccoli in Feb. 2021</div>
                 </div>
                 <div class="gallery-image">
-                    <img src="images/7d2dserverhosting.png" alt="7D2DServerHosting">
+                    <picture>
+                        <source type="image/avif" srcset="images/7d2dserverhosting.avif">
+                        <source type="image/webp" srcset="images/7d2dserverhosting.webp">
+                        <img src="images/7d2dserverhosting.jpg" alt="7D2DServerHosting" loading="lazy">
+                    </picture>
                     <div class="gallery-image-overlay">
                         <a href="https://7d2dserverhosting.com/" target="_blank" aria-label="Visit Website">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -457,7 +469,11 @@
                     <div class="gallery-subtitle">featured in iOS App Store's <i>Best New Game category</i>, Mar. 2016</div>
                 </div>
                 <div class="gallery-image">
-                    <img src="images/frantic-architect.jpg" alt="Frantic Architect">
+                    <picture>
+                        <source type="image/avif" srcset="images/frantic-architect.avif">
+                        <source type="image/webp" srcset="images/frantic-architect.webp">
+                        <img src="images/frantic-architect.jpg" alt="Frantic Architect" loading="lazy">
+                    </picture>
                     <div class="gallery-image-overlay">
                         <a href="https://www.youtube.com/watch?v=zkIfCo2JxJY" target="_blank" aria-label="Postmortem">
                             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
